@@ -10,8 +10,6 @@ import pandas as pd
 # If modifying these SCOPES, delete the file token.pickle.
 SCOPES = ["https://www.googleapis.com/auth/drive"]
 
-def groupBy(df):
-    return df.groupby("Category").sum()
 
 def main():
     creds = None
@@ -37,12 +35,8 @@ def main():
     while done is False:
         status, done = downloader.next_chunk()
 
-    l = fh.getvalue().decode("utf-8").split("\r\n")
-    l = [x.split(",") for x in l]
-    df = pd.DataFrame(l, columns=["Date", "Amount", "Purchase", "Category", "Split"])
-    df = df["Amount"].astype(int)
-    df = df["Split"].astype(int)
-    print(groupBy(df))
+    with open("expenses.csv", "wb") as out_file:
+        out_file.write(fh.getvalue())
 
 if __name__ == "__main__":
     main()
