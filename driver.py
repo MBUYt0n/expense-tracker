@@ -5,6 +5,7 @@ from google.auth.transport.requests import Request
 import io
 import os
 import pickle
+from datetime import date
 
 # If modifying these SCOPES, delete the file token.pickle.
 SCOPES = ["https://www.googleapis.com/auth/drive"]
@@ -26,7 +27,7 @@ def main():
 
     service = build("drive", "v3", credentials=creds)
 
-    file_id = "1ifGqJM-h4us8FaikgXxyDCrcywtmvHLA-IvxCo7aNrQ"
+    file_id = "1DVaCoPBoU5tdHxog32OnOQXSUyDcpXdf2YSzFfVj5sI"
     request = service.files().export_media(fileId=file_id, mimeType='text/csv')
     fh = io.BytesIO()
     downloader = MediaIoBaseDownload(fh, request)
@@ -50,6 +51,7 @@ def main():
 
     with open('downloaded_file.txt', 'a') as out_file:
         out_file.write("\n")
+        out_file.write(f'{date.today().strftime("%Y-%m-%d")},')
         out_file.write(fh.getvalue().decode('utf-8'))
 
     empty_file_metadata = {"name": "Expenses", "mimeType": "text/plain"}
