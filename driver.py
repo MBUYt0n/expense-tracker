@@ -27,7 +27,7 @@ def main():
     service = build("drive", "v3", credentials=creds)
 
     file_id = "1DVaCoPBoU5tdHxog32OnOQXSUyDcpXdf2YSzFfVj5sI"
-    request = service.files().export_media(fileId=file_id, mimeType='text/csv')
+    request = service.files().export_media(fileId=file_id, mimeType="text/csv")
     fh = io.BytesIO()
     downloader = MediaIoBaseDownload(fh, request)
     done = False
@@ -36,7 +36,6 @@ def main():
 
     with open("downloaded_file.txt", "wb") as out_file:
         out_file.write(fh.getvalue())
-    print('Downloaded file has been saved as "downloaded_file.txt"')
 
     file_id1 = "1_bhKM85tnUnDvq7aj3lYGihzps6LeNxIAcCz23tAaPY"
 
@@ -46,30 +45,38 @@ def main():
     done = False
     while done is False:
         status, done = downloader.next_chunk()
-        print("Download %d%%." % int(status.progress() * 100))
 
-    with open('downloaded_file.txt', 'a') as out_file:
-        out_file.write("\n")
-        out_file.write(fh.getvalue().decode('utf-8'))
+    contents = fh.getvalue()
+    if len(contents) > 10:
+        with open("downloaded_file.txt", "a") as out_file:
+            out_file.write("\n")
+            out_file.write(contents.decode("utf-8")[1:])
 
-    empty_file_metadata = {"name": "Expenses", "mimeType": "text/plain"}
-    empty_media = MediaFileUpload(
-        "empty_file.txt", mimetype="text/plain", resumable=True
-    )
-    empty_file = (
-        service.files()
-        .update(fileId=file_id1, body=empty_file_metadata, media_body=empty_media)
-        .execute()
-    )
-    print("The file has been truncated. File ID: %s" % empty_file.get("id"))
-    
-    file_metadata = {
-        "name": "expenses.csv",
-        "mimeType": "application/vnd.google-apps.spreadsheet",
-    }
-    media = MediaFileUpload('downloaded_file.txt', mimetype='text/csv', resumable=True)
-    file = service.files().update(fileId=file_id, body=file_metadata, media_body=media, fields='id').execute()
-    print("File ID: %s" % file.get('id'))
+        empty_file_metadata = {"name": "Expenses", "mimeType": "text/plain"}
+        empty_media = MediaFileUpload(
+            "empty_file.txt", mimetype="text/plain", resumable=True
+        )
+        empty_file = (
+            service.files()
+            .update(fileId=file_id1, body=empty_file_metadata, media_body=empty_media)
+            .execute()
+        )
+
+        file_metadata = {
+            "name": "expenses.csv",
+            "mimeType": "application/vnd.google-apps.spreadsheet",
+        }
+        media = MediaFileUpload(
+            "downloaded_file.txt", mimetype="text/csv", resumable=True
+        )
+        file = (
+            service.files()
+            .update(fileId=file_id, body=file_metadata, media_body=media, fields="id")
+            .execute()
+        )
+        print(1)
+    else:
+        print(0)
 
     os.remove("downloaded_file.txt")
 
