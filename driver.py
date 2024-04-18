@@ -5,7 +5,6 @@ from google.auth.transport.requests import Request
 import io
 import os
 import pickle
-from datetime import date
 
 # If modifying these SCOPES, delete the file token.pickle.
 SCOPES = ["https://www.googleapis.com/auth/drive"]
@@ -51,7 +50,6 @@ def main():
 
     with open('downloaded_file.txt', 'a') as out_file:
         out_file.write("\n")
-        out_file.write(f'{date.today().strftime("%Y-%m-%d")},')
         out_file.write(fh.getvalue().decode('utf-8'))
 
     empty_file_metadata = {"name": "Expenses", "mimeType": "text/plain"}
