@@ -1,6 +1,5 @@
 output=$(python3 driver.py)
 if [ "$output" = "1" ]; then
-    cd projects/expense-tracker
     python3 csv-getter.py
     jupyter nbconvert --execute --inplace stats.ipynb
     jupyter nbconvert --to html stats.ipynb --output index.html
