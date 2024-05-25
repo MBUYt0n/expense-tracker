@@ -7,5 +7,6 @@ if [ "$output" = "1" ]; then
     git add --all
     git commit -m "."
     git remote set-url origin https://MBUYt0n:$GITHUB_TOKEN@github.com/MBUYt0n/expense-tracker.git
+    git remote set-url origin https://MBUYt0n:$GITHUB_TOKEN@github.com/MBUYt0n/expense-tracker.git
     git push
 fi
