@@ -6,6 +6,5 @@ if [ "$output" = "1" ]; then
     code stats.ipynb
     git add --all
     git commit -m "."
-    git remote set-url origin https://MBUYt0n:$GITHUB_TOKEN@github.com/MBUYt0n/expense-tracker.git
-    git push
+    sh pusher.sh
 fi
