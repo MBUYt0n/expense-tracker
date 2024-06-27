@@ -168,7 +168,7 @@ Refill,refill,refill,refill,refill,refill
 2024-06-17,150,haircut,utility,1,0
 2024-06-17,150,scooter-repair,utility,1,0
 2024-06-17,20,stationery,utility,1,0
-2024-06-18,fruits,utility,1,0,
+2024-06-18,20,fruits,utility,1,0
 2024-06-18,30,milk,utility,1,0
 2024-06-18,250,petrol,travel,1,0
 2024-06-18,80,hospital,utility,1,0
@@ -186,7 +186,7 @@ Refill,refill,refill,refill,refill,refill
 2024-06-25,200,petrol,travel,1,0
 2024-06-25,50,coffee,food,1,1
 2024-06-25,70,food,food,2,0
-2024-06-26,100,snickers,1,1,
+2024-06-26,100,snickers,food,1,1
 2024-06-26,200,petrol,travel,1,0
 2024-06-26,10,bun,food,1,0
 2024-05-26,150,sandwich,food,2,0
