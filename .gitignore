@@ -2,7 +2,7 @@
 __pycache__/
 credentials.json
 token.pickle
-pusher.py
+pusher.sh
 *.py[cod]
 *$py.class
 
