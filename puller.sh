@@ -1,0 +1,2 @@
+wget https://raw.githubusercontent.com/MBUYt0n/private-storage/main/credentials.json?token=GHSAT0AAAAAACSP26NKUCX24RZJZRMQGUJQZUY34SA
+wget https://raw.githubusercontent.com/MBUYt0n/private-storage/main/token.pickle
