@@ -1,3 +1,4 @@
+git pull
 output=$(python3 driver.py)
 if [ "$output" = "1" ]; then
     python3 csv-getter.py
