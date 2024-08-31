@@ -1,0 +1,56 @@
+<html>
+	<body>
+		Date: <input type="text" id="date" /> Amount :
+		<input type="text" id="amount" /> Item :
+		<input type="text" id="item" /> Category :
+		<input type="text" id="category" /> Split :
+		<input type="text" id="split" /> Not Me :
+		<input type="text" id="notme" />
+		<button onclick="add()">Add</button>
+
+		<script>
+			function add() {
+				var date = document.getElementById("date");
+				var amount = document.getElementById("amount");
+				var item = document.getElementById("item");
+				var category = document.getElementById("category");
+				var split = document.getElementById("split");
+				var notme = document.getElementById("notme");
+
+				fetch("/input", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({
+						date: date.value,
+						amount: amount.value,
+						item: item.value,
+						category: category.value,
+						split: split.value,
+						notme: notme.value,
+					}),
+				})
+					.then((response) => {
+						if (response.ok) {
+							return response.json();
+						}
+						throw new Error("Request failed.");
+					})
+					.then((data) => {
+						console.log(data);
+					})
+					.catch((error) => {
+						console.log(error);
+					});
+
+                date.value = "";
+                amount.value = "";
+                item.value = "";
+                category.value = "";
+                split.value = "";
+                notme.value = "";
+			}
+		</script>
+	</body>
+</html>
