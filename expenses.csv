@@ -395,8 +395,8 @@ Refill,refill,refill,refill,refill,refill
 Refill,refill,refill,refill,refill,refill
 2024-09-13,1000,dentist,utility,1,0
 2024-09-13,91,grocery,utility,1,0
-2024-09-13,stationery,utility,1,0,
-2024-09-14,rave,utility,1,0,
+2024-09-13,160,stationery,utility,1,0
+2024-09-14,82,rave,utility,1,0
 2024-09-14,40,grocery,utility,1,0
 2024-09-15,35,metro,travel,1,0
 2024-09-15,190,movie,me,1,0
@@ -409,7 +409,7 @@ Refill,refill,refill,refill,refill,refill
 2024-09-18,200,petrol,travel,2,0
 2024-09-18,30,maggie,food,1,0
 2024-09-18,10,chocolate,food,2,0
-2024-09-18.134,grocery,utility,1,0,
+2024-09-18,134,grocery,utility,1,0
 2024-09-19,26,milk,utility,1,0
 2024-09-20,104,milk,utility,1,0
 2024-09-21,10,chocolate,utility,1,0
@@ -419,3 +419,4 @@ Refill,refill,refill,refill,refill,refill
 2024-09-23,70,chocolate,food,2,0
 2024-09-24,91,milk,utility,1,0
 2024-09-26,200,petrol,travel,2,0
+2024-09-25,50,brownie,food,2,0
