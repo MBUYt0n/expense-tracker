@@ -1,12 +1,19 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Input</title>
+	</head>
 	<body>
-		Date: <input type="text" id="date" /> Amount :
-		<input type="text" id="amount" /> Item :
-		<input type="text" id="item" /> Category :
-		<input type="text" id="category" /> Split :
-		<input type="text" id="split" /> Not Me :
+		Date: <input type="text" id="date" /> Amount:
+		<input type="text" id="amount" /> Item:
+		<input type="text" id="item" /> Category:
+		<input type="text" id="category" /> Split:
+		<input type="text" id="split" /> Not Me:
 		<input type="text" id="notme" />
 		<button onclick="add()">Add</button>
+		<button onclick="done()">Done</button>
 
 		<script>
 			function add() {
@@ -17,7 +24,7 @@
 				var split = document.getElementById("split");
 				var notme = document.getElementById("notme");
 
-				fetch("/input", {
+				fetch("/api/input", {
 					method: "POST",
 					headers: {
 						"Content-Type": "application/json",
@@ -44,12 +51,34 @@
 						console.log(error);
 					});
 
-                date.value = "";
-                amount.value = "";
-                item.value = "";
-                category.value = "";
-                split.value = "";
-                notme.value = "";
+				date.value = "";
+				amount.value = "";
+				item.value = "";
+				category.value = "";
+				split.value = "";
+				notme.value = "";
+			}
+
+			function done() {
+				fetch("/api/done", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+				})
+					.then((response) => {
+						if (response.ok) {
+							return response.json();
+						}
+						throw new Error("Request failed.");
+					})
+					.then((data) => {
+						console.log(data);
+						window.location.href = "/index";
+					})
+					.catch((error) => {
+						console.log(error);
+					});
 			}
 		</script>
 	</body>
