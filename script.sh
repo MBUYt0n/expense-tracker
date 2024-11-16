@@ -7,5 +7,5 @@ if [ "$output" = "1" ]; then
     code stats.ipynb
     git add --all
     git commit -m "."
-    sh pusher.sh
+    git push
 fi
