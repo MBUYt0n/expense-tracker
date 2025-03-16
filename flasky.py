@@ -13,6 +13,10 @@ CORS(app)
 
 @app.route("/")
 def home():
+    try:
+        subprocess.run(["git", "pull"])
+    except Exception as e:
+        return jsonify(str(e)), 500
     return render_template("home.html")
 
 
@@ -59,11 +63,6 @@ def ipynb():
         f.write(body)
 
     try:
-        github_pat = os.getenv("GITHUB_PAT")
-        if github_pat is None:
-            raise ValueError("GITHUB_PAT is not set")
-        url = f"https://{github_pat}@github.com/mbuyt0n/expense-tracker.git"
-        subprocess.run(["git", "remote", "set-url", "origin", url])
         subprocess.run(["git", "add", "."])
         subprocess.run(["git", "commit", "-m", "Update index.html"])
         subprocess.run(["git", "push", "origin", "main"])
