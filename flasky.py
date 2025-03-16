@@ -4,6 +4,8 @@ from nbconvert import HTMLExporter
 from nbconvert.preprocessors import ExecutePreprocessor
 import nbformat
 import csv
+import subprocess
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -56,6 +58,17 @@ def ipynb():
     with open("templates/index.html", "w", encoding="utf-8") as f:
         f.write(body)
 
+    try:
+        github_pat = os.getenv("GITHUB_PAT")
+        if github_pat is None:
+            raise ValueError("GITHUB_PAT is not set")
+        url = f"https://{github_pat}@github.com/mbuyt0n/expense-tracker.git"
+        subprocess.run(["git", "remote", "set-url", "origin", url])
+        subprocess.run(["git", "add", "."])
+        subprocess.run(["git", "commit", "-m", "Update index.html"])
+        subprocess.run(["git", "push", "origin", "main"])
+    except Exception as e:
+        return jsonify(str(e)), 500
     return jsonify("done")
 
 
