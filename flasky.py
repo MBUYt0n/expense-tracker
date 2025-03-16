@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, request, render_template, jsonify, redirect
 from flask_cors import CORS
 from nbconvert import HTMLExporter
 from nbconvert.preprocessors import ExecutePreprocessor
@@ -73,7 +73,7 @@ def ipynb():
 
 @app.route("/index")
 def index():
-    return render_template("index.html")
+    return redirect("https://mbuyt0n.github.io/expense-tracker/")
 
 
 if __name__ == "__main__":
