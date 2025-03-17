@@ -11,3 +11,5 @@ I didnt want to build a website, so the easiest way is to run an ipynb and conve
 /api/input takes input clicking on Done executes the jupyter notebook which generates the HTML file and commits expenses and the changed HTML back to github.
 
 Github workflows hosts the index.html file on github pages. 
+
+Flasky.py contains the flask routing, expenses.csv has my expenses and stats.ipynb has the calculations. 
