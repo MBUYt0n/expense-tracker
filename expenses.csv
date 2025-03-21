@@ -478,7 +478,6 @@ Refill,refill,refill,refill,refill,refill
 2025-02-19,60,ocean,food,2,0
 2025-03-01,968,all,all,1,0
 Refill,refill,refill,refill,refill,refill
-
 2025-03-16,5000,all,all,1,0
 Refill,refill,refill,refill,refill,refill
 2025-03-17,950,AT,me,1,0
@@ -492,8 +491,8 @@ Refill,refill,refill,refill,refill,refill
 2025-03-19,20,chocolate,food,2,0
 2025-03-19,70,mogu-mogu,food,2,0
 2025-03-21,104,Milk,utility,1,0
-2025-03-21,20,Chocolate ,food ,2,0
+2025-03-21,20,Chocolate ,food,2,0
 2025-03-21,240,Food,food,2,0
-2025-03-21,70,Mogu mogu,food ,2,0
-2025-03-21,200,Petrol,travel ,2,0
+2025-03-21,70,Mogu mogu,food,2,0
+2025-03-21,200,Petrol,travel,2,0
 2025-03-21,60,Icecream ,food,2,0
