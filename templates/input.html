@@ -40,7 +40,12 @@
 			<label for="item">Item:</label>
 			<input type="text" id="item" />
 			<label for="category">Category:</label>
-			<input type="text" id="category" />
+			<select id="category">
+				<option value="utility">Utility</option>
+				<option value="food">Food</option>
+				<option value="travel">Travel</option>
+				<option value="me">Me</option>
+			</select>
 			<label for="split">Split:</label>
 			<input type="text" id="split" />
 			<label for="notme">Not Me:</label>
@@ -64,6 +69,11 @@
 				var category = document.getElementById("category");
 				var split = document.getElementById("split");
 				var notme = document.getElementById("notme");
+
+				if (isNaN(amount.value) || amount.value.trim() === "") {
+					alert("Please enter a valid number for the amount.");
+					return;
+				}
 
 				fetch("/api/input", {
 					method: "POST",
@@ -95,7 +105,7 @@
 				date.value = new Date().toISOString().split("T")[0];
 				amount.value = "";
 				item.value = "";
-				category.value = "";
+				category.value = "utility";
 				split.value = 1;
 				notme.value = 0;
 			}
