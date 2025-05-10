@@ -565,3 +565,7 @@ Refill,refill,refill,refill,refill,refill
 2025-04-11,220,food,food,2,0
 2025-04-15,70,food,food,2,0
 2025-04-21,20,food,food,2,0
+2025-05-08,2000,all,utility,1,0
+Refill,0,refill,utility,1,0
+2025-05-09,106,milk,utility,1,0
+2025-05-10,200,petrol-jupiter,travel,1,0
