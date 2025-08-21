@@ -709,3 +709,6 @@ Refill,0.00,,utility,1,0
 2025-06-30,310,cash-misc,utility,1,0
 2025-06-30,128,rainy-day-misc,utility,1,0
 2025-06-29,127,subway,food,1,0
+2025-08-21,40000,all,utility,1,0
+Refill,0,refill,utility,refill,refill
+2025-08-21,3000,all,utility,1,0
